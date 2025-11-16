@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "mWG2HeP7rG0=",
+  "success": true,
+  "projectFilePath": "/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/AvaloniaDiagramerControl.Controls.csproj",
+  "expectedPackageFiles": [
+    "/home/lwatson/.nuget/packages/avalonia/11.2.7/avalonia.11.2.7.nupkg.sha512",
+    "/home/lwatson/.nuget/packages/avalonia.buildservices/0.0.31/avalonia.buildservices.0.0.31.nupkg.sha512",
+    "/home/lwatson/.nuget/packages/avalonia.remote.protocol/11.2.7/avalonia.remote.protocol.11.2.7.nupkg.sha512",
+    "/home/lwatson/.nuget/packages/microcom.runtime/0.11.0/microcom.runtime.0.11.0.nupkg.sha512"
+  ],
+  "logs": []
+}

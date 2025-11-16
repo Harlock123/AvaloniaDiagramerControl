@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:AvaloniaDiagramerControl.Controls;assembly=AvaloniaDiagramerControl.Controls"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="700"
+        x:Class="AvaloniaDiagramerControl.Demo.MainWindow"
+        Title="AvaloniaDiagramr Demo - Avalonia Chart Control"
+        Width="900" Height="700">
+
+    <DockPanel>
+        <!-- Button Panel -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10" Spacing="10">
+            <Button Name="LoadSampleData1" Click="LoadSampleData1_Click" Content="Sample Data 1" Padding="10,5"/>
+            <Button Name="LoadSampleData2" Click="LoadSampleData2_Click" Content="Sample Data 2" Padding="10,5"/>
+            <Button Name="LoadSampleData3" Click="LoadSampleData3_Click" Content="Sample Data 3" Padding="10,5"/>
+            <Button Name="ClearButton" Click="ClearButton_Click" Content="Clear" Padding="10,5"/>
+            <Button Name="FlashSeries1Button" Click="FlashSeries1Button_Click" Content="Flash Series 1" Padding="10,5"/>
+            <Button Name="StopFlashButton" Click="StopFlashButton_Click" Content="Stop Flash" Padding="10,5"/>
+            <CheckBox Name="ShowGridCheckBox" IsChecked="True" Content="Show Grid" Margin="10,0,0,0" IsCheckedChanged="ShowGridCheckBox_CheckedChanged"/>
+            <CheckBox Name="ShowTrendLinesCheckBox" IsChecked="True" Content="Show Trend Lines" Margin="10,0,0,0" IsCheckedChanged="ShowTrendLinesCheckBox_CheckedChanged"/>
+        </StackPanel>
+
+        <!-- Chart Control -->
+        <Border BorderBrush="Gray" BorderThickness="1" Margin="10">
+            <controls:AvaloniaDiagramer x:Name="ChartControl"
+                                   ChartTitle="TAIDiagramer - Multi-Series Line Chart Demo"
+                                   ChartTitleFontFamily="Arial"
+                                   ChartTitleFontSize="18"
+                                   ChartTitleFontWeight="Bold"
+                                   YAxisFontFamily="Arial"
+                                   YAxisFontSize="12"
+                                   XAxisFontFamily="Arial"
+                                   XAxisFontSize="12"
+                                   XAxisLabel="Time Period,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+                                   ShowGrid="True"
+                                   DrawKnots="True"
+                                   DrawYAxisValues="True"
+                                   DrawRegressionTrendLines="True"
+                                   DrawAlternateChartBackground="True"
+                                   DrawIntervalDataSeriesIntersects="True"
+                                   OutlineDataSeries="True"
+                                   AntiAlias="True"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"/>
+        </Border>
+    </DockPanel>
+</Window>

@@ -1,0 +1,13 @@
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/obj/Debug/net9.0/AvaloniaDiagramerControl.Controls.csproj.AssemblyReference.cache
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/obj/Debug/net9.0/Avalonia/Resources.Inputs.cache
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/obj/Debug/net9.0/AvaloniaDiagramerControl.Controls.GeneratedMSBuildEditorConfig.editorconfig
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/obj/Debug/net9.0/AvaloniaDiagramerControl.Controls.AssemblyInfoInputs.cache
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/obj/Debug/net9.0/AvaloniaDiagramerControl.Controls.AssemblyInfo.cs
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/obj/Debug/net9.0/AvaloniaDiagramerControl.Controls.csproj.CoreCompileInputs.cache
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/bin/Debug/net9.0/AvaloniaDiagramerControl.Controls.deps.json
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/bin/Debug/net9.0/AvaloniaDiagramerControl.Controls.dll
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/bin/Debug/net9.0/AvaloniaDiagramerControl.Controls.pdb
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/obj/Debug/net9.0/AvaloniaDiagramerControl.Controls.dll
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/obj/Debug/net9.0/refint/AvaloniaDiagramerControl.Controls.dll
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/obj/Debug/net9.0/AvaloniaDiagramerControl.Controls.pdb
+/home/lwatson/RiderProjects/AvaloniaDiagramerControl/AvaloniaDiagramerControl.Controls/obj/Debug/net9.0/ref/AvaloniaDiagramerControl.Controls.dll

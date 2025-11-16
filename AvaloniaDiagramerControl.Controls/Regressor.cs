@@ -1,0 +1,206 @@
+namespace AvaloniaDiagramerControl.Controls;
+
+/// <summary>
+/// Polynomial regression calculator for trend line generation.
+/// Ported from the original VB.NET TAIDiagramer control.
+/// </summary>
+internal class Regressor
+{
+    private const int MaxO = 25;
+    private int _globalO;
+    private bool _finished;
+
+    private readonly double[] _sumX = new double[2 * MaxO + 1];
+    private readonly double[] _sumYX = new double[MaxO + 1];
+    private readonly double[,] _m = new double[MaxO + 1, MaxO + 2];
+    private readonly double[] _c = new double[MaxO + 1]; // Coefficients: Y = C[0]*X^0 + C[1]*X^1 + C[2]*X^2 + ...
+
+    public Regressor()
+    {
+        Init();
+        _globalO = 2;
+    }
+
+    public void Init()
+    {
+        _finished = false;
+        for (int i = 0; i <= MaxO; i++)
+        {
+            _sumX[i] = 0.0;
+            _sumX[i + MaxO] = 0.0;
+            _sumYX[i] = 0.0;
+            _c[i] = 0.0;
+        }
+    }
+
+    public int Degree
+    {
+        get => _globalO;
+        set
+        {
+            if (value < 0 || value > MaxO)
+                _globalO = MaxO;
+            else
+                _globalO = value;
+        }
+    }
+
+    public long XYCount => (long)_sumX[0];
+
+    public double GetCoeff(int exponent)
+    {
+        if (!_finished) Solve();
+        int ex = Math.Abs(exponent);
+        int o = _globalO;
+        if (XYCount <= o) o = (int)XYCount - 1;
+        if (o < ex) return 0.0;
+        return _c[ex];
+    }
+
+    public void XYAdd(double newX, double newY)
+    {
+        _finished = false;
+        int max2O = 2 * _globalO;
+        double tx = 1.0;
+        _sumX[0] = _sumX[0] + 1;
+        _sumYX[0] = _sumYX[0] + newY;
+
+        for (int i = 1; i <= _globalO; i++)
+        {
+            tx = tx * newX;
+            _sumX[i] = _sumX[i] + tx;
+            _sumYX[i] = _sumYX[i] + newY * tx;
+        }
+
+        for (int i = _globalO + 1; i <= max2O; i++)
+        {
+            tx = tx * newX;
+            _sumX[i] = _sumX[i] + tx;
+        }
+    }
+
+    public double RegVal(double x)
+    {
+        if (!_finished) Solve();
+        double regVal = 0.0;
+        int o = _globalO;
+        if (XYCount <= o) o = (int)XYCount - 1;
+
+        for (int i = 0; i <= o; i++)
+        {
+            regVal = regVal + _c[i] * Math.Pow(x, i);
+        }
+        return regVal;
+    }
+
+    private void Solve()
+    {
+        int o = _globalO;
+        if (XYCount <= o) o = (int)XYCount - 1;
+        if (o < 0) return;
+
+        BuildMatrix(o);
+
+        try
+        {
+            GaussSolve(o);
+        }
+        catch
+        {
+            while (1 < o)
+            {
+                try
+                {
+                    _c[0] = 0.0;
+                    o = o - 1;
+                    FinalizeMatrix(o);
+                    break;
+                }
+                catch
+                {
+                    // Continue trying with lower degree
+                }
+            }
+        }
+    }
+
+    private void BuildMatrix(int o)
+    {
+        int o1 = o + 1;
+        for (int i = 0; i <= o; i++)
+        {
+            for (int k = 0; k <= o; k++)
+            {
+                _m[i, k] = _sumX[i + k];
+            }
+            _m[i, o1] = _sumYX[i];
+        }
+    }
+
+    private void FinalizeMatrix(int o)
+    {
+        int o1 = o + 1;
+        for (int i = 0; i <= o; i++)
+        {
+            _m[i, o1] = _sumYX[i];
+        }
+    }
+
+    private void GaussSolve(int o)
+    {
+        // Gauss algorithm implementation, following R. Sedgewick's "Algorithms in C", Addison-Wesley
+        int o1 = o + 1;
+
+        // First triangulize the matrix
+        for (int i = 0; i <= o; i++)
+        {
+            int iMax = i;
+            double t = Math.Abs(_m[iMax, i]);
+
+            // Find the line with the largest abs value in this row
+            for (int j = i + 1; j <= o; j++)
+            {
+                if (t < Math.Abs(_m[j, i]))
+                {
+                    iMax = j;
+                    t = Math.Abs(_m[iMax, i]);
+                }
+            }
+
+            // Exchange the two lines if needed
+            if (i < iMax)
+            {
+                for (int k = i; k <= o1; k++)
+                {
+                    t = _m[i, k];
+                    _m[i, k] = _m[iMax, k];
+                    _m[iMax, k] = t;
+                }
+            }
+
+            // Scale all following lines to have a leading zero
+            for (int j = i + 1; j <= o; j++)
+            {
+                t = _m[j, i] / _m[i, i];
+                _m[j, i] = 0.0;
+                for (int k = i + 1; k <= o1; k++)
+                {
+                    _m[j, k] = _m[j, k] - _m[i, k] * t;
+                }
+            }
+        }
+
+        // Then substitute the coefficients
+        for (int j = o; j >= 0; j--)
+        {
+            double t = _m[j, o1];
+            for (int k = j + 1; k <= o; k++)
+            {
+                t = t - _m[j, k] * _c[k];
+            }
+            _c[j] = t / _m[j, j];
+        }
+
+        _finished = true;
+    }
+}
