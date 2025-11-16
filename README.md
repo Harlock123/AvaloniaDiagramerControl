@@ -2,7 +2,7 @@
 
 A powerful, customizable multi-series line chart control for Avalonia UI applications. This control allows you to visualize multiple data series with trend lines, customizable styling, and interactive features.
 
-![Sample Chart](screenshots/sample-data-1.png)
+![Sample Chart](screenshots/Sample-Data-1.png)
 
 ## Features
 
