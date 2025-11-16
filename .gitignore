@@ -92,3 +92,8 @@ $RECYCLE.BIN/
 # Test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+
+AvaloniaDiagramerControl.Controls/obj/
+AvaloniaDiagramerControl.Demo/obj/
+AvaloniaDiagramerControl.Demo/bin/
+AvaloniaDiagramerControl.Controls/bin/
