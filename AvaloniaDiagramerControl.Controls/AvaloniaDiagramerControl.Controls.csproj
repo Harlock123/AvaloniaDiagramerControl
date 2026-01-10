@@ -4,10 +4,29 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>AvaloniaDiagramerControl</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Lonnie Watson</Authors>
+    <Company>Lonnie Watson</Company>
+    <Description>A powerful, customizable multi-series line chart control for Avalonia UI applications. Features include multiple data series, polynomial regression trend lines, customizable styling, interactive flashing, grid support, and knot markers.</Description>
+    <PackageProjectUrl>https://github.com/Harlock123/AvaloniaDiagramerControl</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Harlock123/AvaloniaDiagramerControl</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>avalonia;chart;diagram;line-chart;data-visualization;ui-control;trend-lines;regression</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>Copyright (c) 2025 Lonnie Watson</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
