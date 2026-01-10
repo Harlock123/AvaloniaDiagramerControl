@@ -226,7 +226,8 @@ ChartControl.AddDataSeries("Budget Products,50,60,70,75,85,90,100,105");
 ChartControl.InvalidateVisual();
 ```
 
-![Sales Performance](https://raw.githubusercontent.com/Harlock123/AvaloniaDiagramerControl/master/screenshots/sales-performance.png)
+![Sales Performance](https://raw.githubusercontent.com/Harlock123/AvaloniaDiagramerControl/master/screenshots/Sample-Data-1.png)
+
 
 ### Example 2: Temperature Variations
 
@@ -243,7 +244,7 @@ ChartControl.DrawRegressionTrendLines = true;
 ChartControl.InvalidateVisual();
 ```
 
-![Temperature Chart](https://raw.githubusercontent.com/Harlock123/AvaloniaDiagramerControl/master/screenshots/temperature-chart.png)
+![Temperature Chart](https://raw.githubusercontent.com/Harlock123/AvaloniaDiagramerControl/master/screenshots/TEMP.png)
 
 ### Example 3: Custom Styling
 
